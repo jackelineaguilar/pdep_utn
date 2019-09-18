@@ -1,0 +1,48 @@
+object pou{
+	var property energiaInicial = 10
+	var property energia = energiaInicial
+	var property salud = 10
+	var property estaAlegre = true
+	
+	method comer(comida, cantidad){
+		if(comida == "fruta" || comida == "verdura"){
+			energia += (1 * cantidad)
+		}
+		
+		if(comida == "bebida"){
+			energia += (0.5 * cantidad)
+		}
+		
+		if(comida == "fritura"){
+			energia -= (0.2 * cantidad)
+		}
+		
+		self.baniarse()
+	}
+	
+	method baniarse(){
+		energia -= 2
+		estaAlegre = false
+	}
+	
+	method jugar(){	
+		self.baniarse()
+		self.reir()
+	}
+	
+	method energizarse(){
+		if(not estaAlegre && energia <= energiaInicial){
+			energia = energiaInicial
+		}
+	}
+	
+	method dormir(){
+		
+	}
+	
+	method reir(){
+		console.println("Me rio")
+		estaAlegre = true
+	}
+	
+}
